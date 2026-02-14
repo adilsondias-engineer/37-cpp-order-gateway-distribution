@@ -1,0 +1,43 @@
+{
+    "log_level": "info",
+
+    "source": {
+        "shm_name": "gateway",
+        "poll_timeout_us": 100
+    },
+
+    "tcp": {
+        "enable": true,
+        "port": 9999
+    },
+
+    "mqtt": {
+        "enable": true,
+        "broker_url": "mqtt://192.168.0.2:1883",
+        "client_id": "distribution_gateway",
+        "username": "trading",
+        "password": "trading123",
+        "topic": "bbo_messages"
+    },
+
+    "kafka": {
+        "enable": false,
+        "broker_url": "192.168.0.203:9092",
+        "client_id": "distribution_gateway",
+        "topic": "bbo_messages"
+    },
+
+    "performance": {
+        "enable_rt": false,
+        "quiet_mode": false,
+        "rt_priority": 70,
+        "cpu_core": 3
+    },
+
+    "comments": {
+        "shm_name": "Shared memory name - must match Project 36 config",
+        "poll_timeout_us": "Microseconds to wait when no data available (prevents busy-spin)",
+        "enable_rt": "Enable real-time scheduling (requires CAP_SYS_NICE)",
+        "quiet_mode": "Suppress per-message console output for benchmarking"
+    }
+}
